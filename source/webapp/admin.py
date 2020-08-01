@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Product
+from .models import GuestBook
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'amount', 'price')
+class GuestAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'email', 'date_create')
     list_display_links = ('pk', 'name')
-    list_filter = ('category',)
+    list_filter = ('status',)
     search_fields = ('name',)
 
 
-admin.site.register(Product, ProductAdmin)
+admin.site.register(GuestBook, GuestAdmin)
