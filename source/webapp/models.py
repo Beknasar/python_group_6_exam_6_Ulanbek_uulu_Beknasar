@@ -1,28 +1,22 @@
 from django.db import models
-from django.core.validators import MinValueValidator
 
-DEFAULT_CATEGORY = 'other'
-CATEGORY_CHOICES = (
-    (DEFAULT_CATEGORY, 'Разное'),
-    ('food', 'Еда'),
-    ('tech', 'Бытовая техника'),
-    ('tools', 'Инструменты'),
-    ('toys', 'Игрушки'),
+DEFAULT_STATUS = 'active'
+STATUS_CHOICES = (
+    (DEFAULT_STATUS, 'Активно'),
+    ('blocked', 'Заблокировано'),
 )
 
 
-class Product(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Название')
-    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
-    category = models.CharField(max_length=20, default=DEFAULT_CATEGORY, choices=CATEGORY_CHOICES,
-                                verbose_name='Категория')
-    amount = models.IntegerField(verbose_name='Остаток', validators=(MinValueValidator(0),))
-    price = models.DecimalField(verbose_name='Цена', max_digits=7, decimal_places=2,
-                                validators=(MinValueValidator(0),))
-
+class GuestBook(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Имя автора записи')
+    email = models.EmailField(verbose_name='Почта')
+    text = models.TextField(max_length=2000, verbose_name='Текст записи')
+    date_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')
+    date_update = models.DateField(auto_now=True, verbose_name='Дата обновления')
+    status = models.CharField(max_length=25, default=DEFAULT_STATUS, choices=STATUS_CHOICES, verbose_name='Статус')
     def __str__(self):
-        return f'{self.name} - {self.amount}'
+        return f'{self.name} - {self.email}'
 
     class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товары'
+        verbose_name = 'Книга'
+        verbose_name_plural = 'Книги'
