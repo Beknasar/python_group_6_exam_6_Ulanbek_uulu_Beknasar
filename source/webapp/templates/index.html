@@ -8,8 +8,8 @@
             <div class="card">
                 <div class="card-title">
                     <h3>{{ guest.name }}({{ guest.email }})</h3>
-                    <a href="guest_edit"><i class="far fa-edit"></i>Edit</a>
-                    <a href="guest_delete">Delete</a>
+                    <a href="{% url 'guest_edit' guest.pk %}"><i class="far fa-edit"></i>Edit</a>
+                    <a href="{% url 'guest_delete' guest.pk %}">Delete</a>
                 </div>
                 <div class="card-content">
             

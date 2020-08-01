@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import GuestBook, STATUS_CHOICES
 
 from django.http import HttpResponseNotAllowed
-#from .forms import
+from .forms import GuestForm
 
 def index_view(request):
     data = GuestBook.objects.filter(status='active')
@@ -11,52 +11,51 @@ def index_view(request):
 
 def create_guest_view(request):
     if request.method == 'GET':
-        form = guestForm()
+        form = GuestForm()
         return render(request, 'guest_create.html', context={
             'form': form
         })
     elif request.method == 'POST':
         #print(request.POST)
-        form = guestForm(data=request.POST)
+        form = GuestForm(data=request.POST)
         # date = request.POST.get('date')
         # if date == '':
         #     date = None
         if form.is_valid():
-            guest = guest.objects.create(
-                title=form.cleaned_data['title'],
-                description = form.cleaned_data['description'],
-                status = form.cleaned_data['status'],
-                guest_deadline = form.cleaned_data['guest_deadline'])
+            guest = GuestBook.objects.create(
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                text=form.cleaned_data['text'])
 
-        return redirect('guest_view', pk=guest.pk)
+        return redirect('index')
     else:
         return HttpResponseNotAllowed(
             permitted_methods=['GET', 'POST'])
 
 def update_view(request, pk):
-    guest = get_object_or_404(guest, pk=pk)
+    guest = get_object_or_404(GuestBook, pk=pk)
     if request.method == "GET":
-        form = guestForm(initial={
-            'title': guest.title,
-            'description': guest.description,
-            'guest_deadline': guest.guest_deadline,
+        form = GuestForm(initial={
+            'name': guest.name,
+            'email': guest.email,
+            'text': guest.text,
             'status': guest.status
         })
-        return render(request, 'guest_update.html', context={
+        return render(request, 'guest_edit.html', context={
             'form': form,
             'guest': guest
         })
     elif request.method == "POST":
        form = GuestForm(data=request.POST)
        if form.is_valid():
-            guest.title = form.cleaned_data['title']
-            guest.description = form.cleaned_data['description']
+            guest.name = form.cleaned_data['name']
+            guest.email = form.cleaned_data['email']
             guest.status = form.cleaned_data['status']
-            guest.guest_deadline = form.cleaned_data['guest_deadline']
+            guest.text = form.cleaned_data['text']
             guest.save()
             return redirect('guest_view', pk=guest.pk)
        else:
-            return render(request, 'guest_update.html', context={
+            return render(request, 'guest_edit.html', context={
                 'guest': guest,
                 'form': form
             })
