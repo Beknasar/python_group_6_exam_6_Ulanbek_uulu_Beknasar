@@ -5,7 +5,7 @@ from django.http import HttpResponseNotAllowed
 from .forms import GuestForm
 
 def index_view(request):
-    data = GuestBook.objects.filter(status='active')
+    data = GuestBook.objects.filter(status='active').order_by('-date_create')
     return render(request, 'index.html', context={'guest_book': data})
 
 

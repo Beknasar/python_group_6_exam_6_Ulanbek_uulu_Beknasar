@@ -52,69 +52,54 @@ body {
     text-decoration: underline;
 }
 
-
-.container-foot{
-	text-align: center;
-	font-size: 12px;
-	text-transform: uppercase;
-	font-style: normal;
-	font-weight: normal;
-}
-
-.footer{
-	height: 79px;
-	background: #000;
-}
-.footer p{
-	padding-top: 25px;
-	display: inline-block;
-	color: #7e8287;
-}
-
-
 .card-content{
 	text-align: center;
-	padding: 25px;
+	padding: 0px;
 	margin-top: 0;
 }
-
+.card-title h3 {
+    margin-left: 10%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.card-title p{
+    font-weight: bold;
+    font-size: 15px;
+}
 .card-title{
 	font-size: 18px;
 	font-weight: normal;
 	color: #33363b;
-	margin-top: 0;
+}
+.card-title a{
+    float: right;
 }
 
 .card{
-	width: 360px;
+	width: 500px;
 	background: white;
 	display: inline-block;
+    box-sizing: border-box;
 	margin: 10px 15px;
     border: #7e8287 solid;
+    overflow-x: hidden;
 }
 .card p{
 	font-size: 14px;
 	color: #868d9b;
-	line-height: 24px; /**/
+	line-height: 24px;
+    padding: 10px;
 }
 
 .card-button{
-	width:  298px;
-	height: 50px;
-	background: darkcyan;
-	color: #fff;
-	font-size: 14px;
-	text-decoration: none;
-	text-transform: uppercase;
-	display: inline-block;
-	border-radius: 5px;
-	line-height: 50px;
+	float: right;
+    margin-right: 10px;
 }
 
-.card-button:hover {
-    background: darkslategrey;
-    color: white;
-}
+/*.card-button:hover {*/
+/*    background: darkslategrey;*/
+/*    color: white;*/
+/*}*/
 
 .button {
     width:  298px;
@@ -147,6 +132,7 @@ body {
 .pre {
     white-space: pre;
 }
+
 .error {
     font-weight: bold;
     color: red;

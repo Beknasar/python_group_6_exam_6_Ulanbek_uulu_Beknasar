@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Вы уверены, что хотите удалить запись "{{ guest.name }}"?</h1>
+    <h1>Вы уверены, что хотите удалить запись от "{{ guest.name }}"?</h1>
     <p>{{ guest.email }} ||| {{ guest.status }}</p>
     <form action="{% url "guest_delete" guest.pk %}" method="post">
         {% csrf_token %}

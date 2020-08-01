@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% block styles %}<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">{% endblock %}
 {% block title %}Guest_books{% endblock %}
 {% block content %}
 <h1>Задачи:</h1>
     <div class = "guest">
         {% for guest in guest_book %}
-            <div class="card">
-                <div class="card-title">
-                    <h3>{{ guest.name }}({{ guest.email }})</h3>
-                    <a href="{% url 'guest_edit' guest.pk %}"><i class="far fa-edit"></i>Edit</a>
-                    <a href="{% url 'guest_delete' guest.pk %}">Delete</a>
-                </div>
-                <div class="card-content">
-            
-                    <p>{{ guest.text }}</p>
+            <div class="card-content">
+                <div class="card">
+                    <div class="card-title">
+                        <a href="{% url 'guest_delete' guest.pk %}" class="card-button"><i class="far fa-trash-alt"></i></a>
+                        <a href="{% url 'guest_edit' guest.pk %}" class="card-button"><i class="far fa-edit"></i></a>
+                         <h3>
+                            {{ guest.name }}
+                        </h3>
+                        <p>email: {{ guest.email }}</p>
+                    </div>
+                    <pre><p class="pre">{{ guest.text }}</p></pre>
+
                 </div>
 		    </div>
         {% endfor %}
