@@ -12,12 +12,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='product',
+            model_name='guest',
             name='amount',
             field=models.IntegerField(validators=[django.core.validators.MinValueValidator(0)], verbose_name='Остаток'),
         ),
         migrations.AlterField(
-            model_name='product',
+            model_name='guest',
             name='price',
             field=models.DecimalField(decimal_places=2, max_digits=7, validators=[django.core.validators.MinValueValidator(0)], verbose_name='Цена'),
         ),

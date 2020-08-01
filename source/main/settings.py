@@ -17,13 +17,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for guestion
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in guestion secret!
 SECRET_KEY = '6=kcd=#f*ay(x%(*%dhh#@qtpakcjq(5+u*5@z+9uujas&ja@h'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in guestion!
 DEBUG = True
 
 ALLOWED_HOSTS = []

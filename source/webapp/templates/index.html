@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Guest_books{% endblock %}
+{% block content %}
+<h1>Задачи:</h1>
+    <div class = "guest">
+        {% for guest in guest_book %}
+            <div class="card">
+                <div class="card-title">
+                    <h3>{{ guest.name }}({{ guest.email }})</h3>
+                    <a href="guest_edit"><i class="far fa-edit"></i>Edit</a>
+                    <a href="guest_delete">Delete</a>
+                </div>
+                <div class="card-content">
+            
+                    <p>{{ guest.text }}</p>
+                </div>
+		    </div>
+        {% endfor %}
+    </div>
+{% endblock %}
