@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import GuestBook
 
 from django.http import HttpResponseNotAllowed
-from .forms import GuestForm
+from .forms import GuestForm, SearchForm
 
 def index_view(request):
     data = GuestBook.objects.filter(status='active').order_by('-date_create')

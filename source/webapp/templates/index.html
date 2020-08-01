@@ -5,8 +5,9 @@
 {% block content %}
 <h1>Задачи:</h1>
     <div class = "guest">
-{#        <p><input type="search" name="q" placeholder="Поиск по сайту">#}
-{#        <input type="submit" value="Найти"></p>#}
+        form
+        <p><input type="search" name="author" placeholder="Поиск по автору">
+        <input type="submit" value="Найти"></p>
         <br/>
         {% for guest in guest_book %}
             <div class="card-content">

@@ -4,7 +4,6 @@
 
 {% block content %}
 <h1>Create guest</h1>
-
         {% url 'guest_create' as action_url %}
         {% include 'partial/form.html' with action_url=action_url form_method='post' %}
 {% endblock %}

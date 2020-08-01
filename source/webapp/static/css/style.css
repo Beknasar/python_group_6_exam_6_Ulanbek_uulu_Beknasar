@@ -93,13 +93,13 @@ body {
 
 .card-button{
 	float: right;
+    color: #02918c;
     margin-right: 10px;
 }
 
-/*.card-button:hover {*/
-/*    background: darkslategrey;*/
-/*    color: white;*/
-/*}*/
+.card-button:hover {
+    color: black;
+}
 
 .button {
     width:  298px;
@@ -115,19 +115,19 @@ body {
 	line-height: 50px;
 }
 .accept {
-    background: darkcyan;
+    background: crimson;
 }
 .cancel {
     background: #7e8287;
     color: white;
 }
 .button:hover {
-    background: darkslategrey;
+    background: brown;
     color: white;
 }
 
 .cancel:hover {
-    background: darkgray;
+    background: #33363b;
 }
 .pre {
     white-space: pre;
